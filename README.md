@@ -1,4 +1,4 @@
-# auto-keyborad
+# auto-keyboard
 
 ![logo](logo.jpg)
 
@@ -6,7 +6,7 @@
 
 这是一个半自动化的键盘访问解决方案，主要适用于需要完全键盘操作场景，比如大屏展示，电视，游戏菜单等，大大简化按键操作的逻辑。
 
-焦点使用虚拟交掉，也就是通过添加`.focus`等class实现，而不是原生自带的`:focus`，更利于定制化需求。
+焦点使用虚拟焦点，也就是通过添加`.focus`等class实现，而不是原生自带的`:focus`，更利于定制化需求。
 
 基于`HTML`页面。
 
@@ -110,7 +110,7 @@ ajax({
 })
 ```
 
-### V.insertAfterBefore(nodeList)
+### V.insertBefore(nodeList)
 
 与`insertAfter`相反，向前追加子元素。
 
