@@ -182,7 +182,7 @@ V.move = function (prev, current) {
 
 ## 案例
 
-[https://portal.codelabo.cn/](https://portal.codelabo.cn/)
+[https://web.codelabo.cn/auto-keyboard/](https://web.codelabo.cn/auto-keyboard/)
 
 > 接口已失效，可查看源代码
 

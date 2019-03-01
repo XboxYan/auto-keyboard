@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="1280*720; text/html; charset=utf-8">
+    <meta name="viewport" content="width=1280,user-scalable=no">
+    <title>example</title>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <style>
+        .top{ height: 100px; margin: 0 70px; position: relative;}
+        .notice{ font-size: 20px; color: #dfdce0;}
+        .top-acticon{ position: absolute; right: 0; top: 35px;}
+        .top-acticon>a{ height: 30px; line-height: 30px; font-size: 20px; color: #908e9b; padding-left: 40px; padding-right: 10px; margin-right: 15px; background: url('./img/index_ico.png') 5px top no-repeat;}
+        .top-acticon>a.act02{ background-position: 5px -30px;}
+        .top-acticon>a.act03{ background-position: 5px -60px;}
+        .top-acticon>a.focus{ box-shadow: 0 0 0 2px #5a5767; border-radius: 10px;}
+        .center{ height: 500px; overflow: hidden;}
+        .center-wrap{ font-size: 0; height: 100%; white-space: nowrap; transition: .3s transform;}
+        .tab01{transform: translateX(0);}
+        .tab02{transform: translateX(-100%);}
+        .tab03{transform: translateX(-200%);}
+        .tab04{transform: translateX(-300%);}
+        .tab05{transform: translateX(-400%);}
+        .tab06{transform: translateX(-500%);}
+        .tab07{transform: translateX(-600%);}
+        .tab08{transform: translateX(-700%);}
+        .center-view{ display: inline-block; box-sizing: border-box; vertical-align: top; height: 100%; width: 1280px; padding: 10px 0 10px 70px }
+        .center-view>div{ vertical-align: top;}
+        .l-1{ width: 230px; }
+        .l-2{ width: 460px; }
+        .item{ position: relative; margin-bottom:9px; background: #838383; margin-right: 10px; transition: .3s;}
+        .item.focus:before{ content: ''; left: -5px; top: -5px; position: absolute; width: 100%; height: 100%; border: 5px solid #fe961b; transition: .3s; }        
+        .item img{ width: 100%; height: 100%; position: relative;}
+        .item img:after{ content: ''; position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: #55564e;  }
+        .item h2{ position: absolute; left: 0; right: 0; bottom: 0; padding: 0 10px; font-size: 20px; line-height: 44px; height: 36px; background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4),rgba(0,0,0,.7))}
+        .size1{ width: 220px; height: 145px;}
+        .size2{ width: 220px; height: 68px;}
+        .size3{ width: 450px; height: 300px;}
+        .size4{ width: 450px; height: 145px;}
+        .size5{ width: 220px; height: 300px;}
+        .size6{ width: 170px; height: 470px;}
+        .rate-list{ box-sizing: border-box; padding-top: 56px; height: 300px; background: url('./img/index-img03.jpg')}
+        .rate-list li{ line-height: 48px; font-size: 20px; padding: 0 10px 0 40px;}
+        .nav{ position: absolute; left: 0; right: 0; bottom: 0; height: 106px; border-top: 2px solid #2d2b38; text-align: center; font-size: 25px; color: #676476;}
+        .nav a{ display: inline-block; position: relative; line-height: 50px; margin: 15px 35px 0 35px; }
+        .nav a:after{ content: ''; position: absolute; width: 44px; left: 50%; margin-left: -22px; bottom: -4px; height: 4px; border-radius: 2px; background:#ff8a00; transform: scaleX(0); visibility: hidden; transition: .3s transform;}
+        .nav a.focus{ font-size: 30px; color: #ff8a00;}
+        .nav a.current:after{ transform: scaleX(1); visibility: visible; }
+        .swiper-list{ position: absolute; left: 0; bottom: 8px; right: 0; text-align: right; font-size: 0;}
+        .swiper-list i{ display: inline-block; width: 10px; height: 10px; margin-right: 10px; border-radius: 50%; background: #bbbfc1; transition: .3s;}
+        .swiper-list i.current{ background: #fa7600; transform: scale(1.3); }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top mfix">
+            <h1 class="logo"></h1>
+            <div class="top-acticon l-h" id="top">
+                <a class="act01">搜索</a>
+                <a class="act02">收藏</a>
+                <a class="act03">历史</a>
+            </div>
+        </div>
+        <div class="center">
+            <div class="page page-left" id="page-pre" style="display:none"></div>
+            <div class="center-wrap" id="tabcon">
+                <!-- 首页 -->
+                <div class="center-view l-h" id="con01">
+                    <div class="l-1">
+                        <div class="item size1">
+                            <img src="img/exp/index-img01.jpg">
+                            <h2>粉红猪小妹4</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="img/exp/index-img02.jpg">
+                            <h2>粉红猪小妹4</h2>
+                        </div>
+                        <div class="item size2">
+                            <img src="img/index-img01.jpg">
+                        </div>
+                        <div class="item size2">
+                            <img src="img/index-img02.jpg">
+                        </div>
+                    </div>
+                    <div class="l-2">
+                        <div class="item size3">
+                            <img src="img/exp/index-img03.jpg">
+                            <h2>老男孩</h2>
+                        </div>
+                        <div class="item size4">
+                            <img src="img/exp/index-img04.jpg">
+                            <h2>歌手2018</h2>
+                        </div>
+                    </div>
+                    <div class="l-1">
+                        <div class="item size5">
+                            <img src="img/exp/index-img05.jpg">
+                            <h2>快乐大本营2018</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="img/exp/index-img06.jpg">
+                            <h2>我是大侦探</h2>
+                        </div>
+                    </div>
+                    <div class="l-1">
+                        <div class="item size5">
+                            <img src="img/exp/index-img05.jpg">
+                            <h2>快乐大本营2018</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="img/exp/index-img08.jpg">
+                            <h2>幸福巧克力</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- 综艺 -->
+                <div class="center-view" id="con02">
+                    <div class="l-h">
+                        <div class="item size3">
+                            <img src="">
+                            <h2>妈妈是超人</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>歌手2017</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>快乐大本营</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>神奇的孩子</h2>
+                        </div>
+                    </div>
+                    <div class="l-h">
+                        <div class="item size1">
+                            <img src="img/index-img04.jpg">
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>我想和你唱</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>为你而来</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>向往的生活</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>天天向上</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- 电视剧 -->
+                <div class="center-view" id="con03">
+                    <div class="l-h">
+                        <div class="item size3">
+                            <img src="">
+                            <h2>妈妈是超人</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>歌手2017</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>快乐大本营</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>神奇的孩子</h2>
+                        </div>
+                    </div>
+                    <div class="l-h">
+                        <div class="item size1">
+                            <img src="img/index-img04.jpg">
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>我想和你唱</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>为你而来</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>向往的生活</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>天天向上</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- 电影 -->
+                <div class="center-view" id="con04">
+                    <div class="l-h">
+                        <div class="item size3">
+                            <img src="">
+                            <h2>妈妈是超人</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>歌手2017</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>快乐大本营</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>神奇的孩子</h2>
+                        </div>
+                    </div>
+                    <div class="l-h">
+                        <div class="item size1">
+                            <img src="img/index-img04.jpg">
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>我想和你唱</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>为你而来</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>向往的生活</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>天天向上</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- 动漫 -->
+
+
+                <div class="center-view" id="con05">
+                    <div class="l-h">
+                        <div class="item size3 focus">
+                            <img src="">
+                            <h2>妈妈是超人</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>歌手2017</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>快乐大本营</h2>
+                        </div>
+                        <div class="item size5">
+                            <img src="">
+                            <h2>神奇的孩子</h2>
+                        </div>
+                    </div>
+                    <div class="l-h">
+                        <div class="item size1">
+                            <img src="img/index-img04.jpg">
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>我想和你唱</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>为你而来</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>向往的生活</h2>
+                        </div>
+                        <div class="item size1">
+                            <img src="">
+                            <h2>天天向上</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page page-right" id="page-next"></div>
+        </div>
+        <div class="nav" id="nav">
+            <a>首页</a>
+            <a>综艺</a>
+            <a>电视剧</a>
+            <a>电影</a>
+            <a>动漫</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/smoothscroll.min.js"></script>
+<script type="text/javascript" src="./js/base.js"></script>
+<script type="text/javascript" src="./js/view.js"></script>
+<script>
+var nav = $('nav');
+var tabcon = $('tabcon');
+var tops = $('top');
+var Con = [];
+
+/*Vnav*/
+var Vnav = new View(nav);
+Vnav.init(nav.getElementsByTagName('a'));
+Vnav.saveCurrent = true;
+Vnav.onfocus();
+
+var Vtop = new View(tops);
+Vtop.init(tops.getElementsByTagName('a'));
+
+/*Con*/
+
+Vnav.a.forEach(function(el,i){
+    var con = $('con0'+(i+1));
+    Con[i] = new View(con);
+    Con[i].init(con.querySelectorAll('.item'));
+})
+
+Vnav.move = function(pre,current){
+    tabcon.className = "center-wrap tab0"+(this.focusId+1);
+    if(Vnav.map[this.focusId]['right']){
+        $('page-next').style.display = 'block';
+    }else{
+        $('page-next').style.display = 'none';
+    }
+    if(Vnav.map[this.focusId]['left']){
+        $('page-pre').style.display = 'block';
+    }else{
+        $('page-pre').style.display = 'none';
+    }
+}
+
+Vnav.up = function(){
+    Con[this.focusId].onfocus();
+}
+
+Con.forEach(function(el,i){
+    el.down = function(){
+        Vnav.onfocus();
+    }
+    el.up = function(){
+        Vtop.onfocus();
+    }
+    el.ok = function(el){
+        console.log(el)
+    }
+    el.right = function(){
+        Vnav.onkey('right');//主动触发向右事件
+        Vnav.onkey('up');
+    }
+    el.left = function(){
+        Vnav.onkey('left');
+        Vnav.onkey('up');
+    }
+})
+
+Vtop.down = function(){
+    var index = Vnav.focusId;
+    Con[index].onfocus();
+}
+
+</script>
+</body>
+</html>
