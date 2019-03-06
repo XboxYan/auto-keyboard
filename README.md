@@ -10,6 +10,8 @@
 
 基于`HTML`页面。
 
+> 比较冷门，键盘交互方向，不感兴趣的可以跳过。
+
 ## 半自动化
 
 由于实际场景复杂多样，过于全反而会让业务代码更繁杂。
@@ -180,12 +182,30 @@ V.move = function (prev, current) {
 
 是否启用滚动动画。该功能使用`smoothscroll.js`完成，如果不支持该插件，可禁用滚动动画。
 
+### function
+
+#### V.onkey(action)
+
+*action*可选值`up`、`right`、`down`、`left`、`ok`、`back`，可主动调用该区域的按键操作。
+
+```js
+ListCurrent.V.right = function () {
+    Vnav.onfocus();
+    Vnav.onkey('right');
+    Vnav.onkey('down');
+}
+```
+
 ## 案例
 
 [https://web.codelabo.cn/auto-keyboard/](https://web.codelabo.cn/auto-keyboard/)
 
-> 接口已失效，可查看源代码
+**请使用键盘方向键上下左右体验**
+
+> 可以查看源码，代码量很小
 
 ## 结语
 
-目前市面上并没有什么对键盘操作封装的库，希望能够帮助大家吧。
+目前市面上并没有什么对键盘操作封装的库，键盘什么的这个方向确实比较窄，或者说比较冷门，希望能够帮助特定的人群吧。
+
+有这方面兴趣的欢迎交流，一起讨论。
