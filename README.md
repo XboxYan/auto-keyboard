@@ -51,8 +51,6 @@
     </li>
     ...
 </ul>
-<script type="text/javascript" src="./js/smoothscroll.min.js"></script>
-<script type="text/javascript" src="./js/base.js"></script>
 <script type="text/javascript" src="./js/view.js"></script>
 ```
 
