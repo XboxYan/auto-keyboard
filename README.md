@@ -51,6 +51,7 @@
     </li>
     ...
 </ul>
+<script type="text/javascript" src="./js/smoothscroll.min.js"></script>
 <script type="text/javascript" src="./js/view.js"></script>
 ```
 
@@ -190,13 +191,30 @@ V.onfocus();
 
 > 获焦的区域，容器会增加`focus`样式，通常在由子元素情况下，不会给容器增加额外样式，在没有子元素情况下，比如新闻浏览时，可以给容器加一个`focus`样式，以表示该区域正在获焦。
 
+**默认焦点**
+
+`autofocus`指定默认焦点，默认为该区域左上角的元素（有可能不是第`0`个）
+
+给元素指定`autofocus=true`可以在初始化自动聚焦到该焦点。(DOM)
+
+```html
+<div>
+    <a></a>
+    <a autofocus="true"></a>
+    <a></a>
+    <a></a>
+</div>
+```
+
 ### V.focusById(id)
 
-根据元素`id`聚焦。(元素)
+根据元素`id`聚焦，如果页面可滚动，则会自动定位到该元素。(元素)
 
 ### V.focusByIndex(index)
 
-根据元素`index`聚焦。这里的`index`指的是元素在文档中相对于其他子元素的顺序。
+根据元素`index`聚焦，如果页面可滚动，则会自动定位到该元素。(元素)
+
+这里的`index`指的是元素在文档中相对于其他子元素的顺序。
 
 ```html
 <div>
@@ -247,15 +265,19 @@ V.sortby(rules);
 
 回车、确定。
 
-```js
-V.ok = function(item){
-    console.log(item)//当前获焦元素的dom节点
-}
-```
-
 当按下确定时，会给当前获焦元素添加`pressIn`类，抬起时移除，可自定义按下效果。
 
 可以通过`V.isCurrent`来区分当前状态是否在点击同一个元素，优化体验。
+
+```js
+V.ok = function(item){
+    if(this.isCurrent){
+        console.log('重复点击了该元素');
+    }else{
+        console.log(item)//当前获焦元素的dom节点
+    }
+}
+```
 
 #### V.left、V.right、V.up、V.down
 
@@ -265,7 +287,7 @@ V.ok = function(item){
 
 ```js
 V.left = function(){
-    V.onfocus();//此时Vl会自动失去焦点，V会主动获焦
+    Vl.onfocus();//此时V会自动失去焦点，Vl会主动获焦
 }
 ```
 
@@ -296,26 +318,16 @@ V.move = function (prev, current) {
 
 > 当重新回到该区域时，会自动定位到`current`位置。
 
-### 页面滚动
+### V.scrollAnimate
+
+是否强制开启启动滚动动画（如果不支持会启用插件滚动）。默认为`true`。
 
 页面滚动是通过修改`scrollTop`和`scrollLeft`完成，如果你需要一个区域滚动，必须指明宽度或者高度，同时设置`overflow:hidden|auto`才能生效。
 
-如果需要动画，可以增加属性`scroll-behavior: smooth`（可能有兼容性问题，不影响功能），或者引入`smoothscroll.min.js`。
+如果需要动画，可以增加属性`scroll-behavior: smooth`（可能有兼容性问题，不影响功能）
 
-### 默认焦点
+或者引入`smoothscroll.min.js`，设置`V.scrollAnimate = true`。
 
-`autofocus`指定默认焦点，不指定则为区域左上角的元素（有可能不是第`0`个）
-
-给元素指定`autofocus=true`可以在初始化自动聚焦到该焦点。
-
-```html
-<div>
-    <a></a>
-    <a autofocus="true"></a>
-    <a></a>
-    <a></a>
-</div>
-```
 
 ### 指令
 
@@ -328,7 +340,7 @@ V.move = function (prev, current) {
 与真实的按键操作响应无异，包括该按键对应的回调事件。
 
 ```js
-ListCurrent.V.right = function () {
+V.right = function () {
     Vnav.onfocus();
     Vnav.onkey('right');
     Vnav.onkey('down');
@@ -354,7 +366,7 @@ ListCurrent.V.right = function () {
 
 **请使用键盘方向键上下左右体验**
 
-> 可以查看源码，代码量很小
+> 可以查看源码，代码量很小，却有意想不到的效果。
 
 ## 结语
 
