@@ -279,14 +279,7 @@ V.ok = function(item){
 }
 ```
 
-`V.isCurrent`用来标识再次按下时是否仍为上一个元素，如果仍为上一个元素（即焦点没有移动，在同一个元素上连续点击`ok`），那么第一次为`false`，第二次为`true`
-
-```js
-V.ok = function(item){
-    console.log(this.isCurrent)//第一次为`false`
-    //第二次为`true`
-}
-```
+鼠标点击会触发该事件。
 
 #### V.left、V.right、V.up、V.down
 
@@ -314,6 +307,8 @@ V.move = function (prev, current) {
     //current移动之前后
 }
 ```
+
+鼠标点击会触发该事件。
 
 ### 属性
 
