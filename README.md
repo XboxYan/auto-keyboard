@@ -279,6 +279,15 @@ V.ok = function(item){
 }
 ```
 
+`V.isCurrent`用来标识再次按下时是否仍为上一个元素，如果仍为上一个元素（即焦点没有移动，在同一个元素上连续点击`ok`），那么第一次为`false`，第二次为`true`
+
+```js
+V.ok = function(item){
+    console.log(this.isCurrent)//第一次为`false`
+    //第二次为`true`
+}
+```
+
 #### V.left、V.right、V.up、V.down
 
 向左/右/上/下（处于边界时）。当获焦元素处于区域边界时触发。一般用于跨越区域。
@@ -357,14 +366,21 @@ V.right = function () {
 
 ### 鼠标操作
 
-暂不支持。
+现支持鼠标快速操作，可以同键盘无缝使用。
 
+点击鼠标左键可以触发元素的`ok`事件
+
+点击区域可以对区域进行聚焦。
+
+详细规则可以体验下面demo，与常规页面体验无异。
+
+> 注意：如果需要使用滚动，那么需要设置容器`overflow:auto`,而不能是`overflow:hidden`
 
 ## 案例
 
 [https://web.codelabo.cn/auto-keyboard/](https://web.codelabo.cn/auto-keyboard/)
 
-**请使用键盘方向键上下左右体验**
+**请使用键盘方向键上下左右体验，可以配合鼠标操作**
 
 > 可以查看源码，代码量很小，却有意想不到的效果。
 

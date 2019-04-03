@@ -41,8 +41,8 @@
         .size6{ width: 170px; height: 470px;}
         .rate-list{ box-sizing: border-box; padding-top: 56px; height: 300px; background: url('./img/index-img03.jpg')}
         .rate-list li{ line-height: 48px; font-size: 20px; padding: 0 10px 0 40px;}
-        .nav{ position: absolute; left: 0; right: 0; bottom: 0; height: 106px; border-top: 2px solid #2d2b38; text-align: center; font-size: 25px; color: #676476;}
-        .nav a{ display: inline-block; position: relative; line-height: 50px; margin: 15px 35px 0 35px; }
+        .nav{ position: absolute; left: 0; right: 0; bottom: 0; height: 106px; white-space: nowrap; border-top: 2px solid #2d2b38; text-align: center; font-size: 25px; color: #676476; overflow: auto; scroll-behavior: smooth;}
+        .nav a{ display: inline-block; cursor: pointer; position: relative; line-height: 50px; margin: 15px 35px 0 35px; }
         .nav a:after{ content: ''; position: absolute; width: 44px; left: 50%; margin-left: -22px; bottom: -4px; height: 4px; border-radius: 2px; background:#ff8a00; transform: scaleX(0); visibility: hidden; transition: .3s transform;}
         .nav a.focus{ font-size: 30px; color: #ff8a00;}
         .nav a.current:after{ transform: scaleX(1); visibility: visible; }
@@ -347,7 +347,9 @@ Con.forEach(function(el,i){
         Vtop.onfocus();
     }
     el.ok = function(el){
-        console.log(el)
+        if(!this.isCurrent){
+            console.log(el)
+        }
     }
     el.right = function(){
         Vnav.onkey('right');//主动触发向右事件
