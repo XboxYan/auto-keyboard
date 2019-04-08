@@ -193,7 +193,7 @@ V.onfocus();
 
 **默认焦点**
 
-`autofocus`指定默认焦点，默认为该区域左上角的元素（有可能不是第`0`个）
+`autofocus`指定默认焦点，默认为该区域左上角的元素（有可能不是第`0`个，如绝对定位的情况）
 
 给元素指定`autofocus=true`可以在初始化自动聚焦到该焦点。(DOM)
 
@@ -359,6 +359,13 @@ V.right = function () {
 
 通常适用于接管安卓的按键响应事件。
 
+```js
+//console
+moveLeft();
+moveUp();
+//...
+```
+
 ### 鼠标操作
 
 现支持鼠标快速操作，可以同键盘无缝使用。
@@ -369,7 +376,7 @@ V.right = function () {
 
 详细规则可以体验下面demo，与常规页面体验无异。
 
-> 注意：如果需要使用滚动，那么需要设置容器`overflow:auto`,而不能是`overflow:hidden`
+> 注意：如果需要使用鼠标滚轮滚动，那么需要设置容器`overflow:auto`,而不能是`overflow:hidden`
 
 ## 案例
 
