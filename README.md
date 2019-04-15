@@ -228,7 +228,7 @@ V.onfocus();
 </div>
 ```
 
-### findByDir(dir)
+### V.findByDir(dir)
 
 根据方位查找元素，返回元素`index`，找不到会返回`null`。
 
