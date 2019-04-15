@@ -228,6 +228,28 @@ V.onfocus();
 </div>
 ```
 
+### findByDir(dir)
+
+根据方位查找元素，返回元素`index`，找不到会返回`null`。
+
+`dir`是一个表示方位的数组，可依次传入`left`、`right`、`up`、`down`
+
+```js
+V.findByDir['right','down','down'] //表示当前元素的右边的下边的下边，可累计
+```
+
+通常用于边界提前判断，预加载。
+
+例如，当下方还有两个元素（需要按两次“下”）的时候提前加载下一页。
+
+```js
+if(!this.findByDir['down','down']){
+    //...
+    this.down();
+    //...
+}
+```
+
 ### V.sortby(arr)
 
 自定义按键移动规则。
