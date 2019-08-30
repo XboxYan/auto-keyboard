@@ -22,6 +22,10 @@
 
 [马上体验](https://web.codelabo.cn/auto-keyboard/)
 
+[案例1](https://portal.codelabo.cn)
+
+[案例2](https://portal.codelabo.cn/index_on.html)
+
 ## 快速入门
 
 由于实际场景复杂多样，过于全反而会让业务代码更繁杂，不可维护。
