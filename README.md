@@ -20,7 +20,7 @@
 
 统一的滚动动画
 
-[马上体验](https://web.codelabo.cn/auto-keyboard/)
+[马上体验](http://xboxyan.codelabo.cn/auto-keyboard/example/index.html)
 
 ## 快速入门
 
@@ -402,7 +402,7 @@ moveUp();
 
 ## 案例
 
-[https://web.codelabo.cn/auto-keyboard/](https://web.codelabo.cn/auto-keyboard/)
+[http://xboxyan.codelabo.cn/auto-keyboard/example/index.html](http://xboxyan.codelabo.cn/auto-keyboard/example/index.html)
 
 **请使用键盘方向键上下左右体验，可以配合鼠标操作**
 
